@@ -28,6 +28,7 @@ app.get('/', (req,res) => {
 app.use(express.static(path.join(__dirname, 'www')));
 
 app.post('/', (req, res) => {
+  console.log('image size ' + req.body.picture.length);
   io.emit('image', req.body.picture);
 
   res.status(200).send({
